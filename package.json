@@ -1,0 +1,44 @@
+{
+  "name": "srify",
+  "version": "0.1.0",
+  "description": "Adds integrity attributes to script and stylesheet link tags on html markup",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.6.0"
+  },
+  "scripts": {
+    "test": "tape 'test/*.js' | tap-spec",
+    "test:watch": "tape-watch 'test/*.js' --clear --pipe tap-spec",
+    "lint": "prettier-standard 'src/**/*.js' 'test/**/*.js' && standard",
+    "prepublish": "npm run lint && npm test"
+  },
+  "keywords": [
+    "sri",
+    "subresource integrity",
+    "npm",
+    "integrity attribute",
+    "markup",
+    "html"
+  ],
+  "author": "Lay Flags <code@layfla.gs>",
+  "bugs": {
+    "url": "https://github.com/layflags/srify/issues"
+  },
+  "homepage": "https://github.com/layflags/srify",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/layflags/srify"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "ssri": "^6.0.1"
+  },
+  "devDependencies": {
+    "html-looks-like": "^1.0.3",
+    "prettier-standard": "^8.0.1",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "tape-watch": "^2.3.0"
+  }
+}
