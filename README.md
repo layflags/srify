@@ -56,7 +56,9 @@ npm test
 
 ## Change log
 
+* `1.0.1`: fix main entry in `package.json`
 * `1.0.0`: initial release
+
 
 ## License
 
