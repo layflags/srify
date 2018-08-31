@@ -3,6 +3,9 @@
   "version": "1.0.1",
   "description": "Adds integrity attributes to script and stylesheet link tags on html markup",
   "main": "src/index.js",
+  "bin": {
+    "srify": "./src/cli.js"
+  },
   "engines": {
     "node": ">=8.6.0"
   },
@@ -10,7 +13,7 @@
     "test": "tape 'test/*.js' | tap-spec",
     "test:watch": "tape-watch 'test/*.js' --clear --pipe tap-spec",
     "lint": "prettier-standard 'src/**/*.js' 'test/**/*.js' && standard",
-    "prepublish": "npm run lint && npm test"
+    "prepublishOnly": "npm run lint && npm test"
   },
   "keywords": [
     "sri",
@@ -32,6 +35,7 @@
   "license": "MIT",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
+    "commander": "^2.17.1",
     "ssri": "^6.0.1"
   },
   "devDependencies": {

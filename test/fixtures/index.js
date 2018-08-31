@@ -1,3 +1,4 @@
+// node dependencies
 const fs = require('fs')
 
 const BASE_DIR = 'test/fixtures'
@@ -14,6 +15,9 @@ const INTEGRITY_SCRIPT_1 =
 const INTEGRITY_SCRIPT_2 =
   'sha384-hp5tnaw8RT0zq5S2OLkmXpNprpaLoCp2zPGa5I4/Ly+OSYWS8ZdVWquhSx/X0dSL'
 
+const INTEGRITY_EMPTY_FILE =
+  'sha384-OLBgp1GsljhM2TJ+sbHjaiH9txEUvgdDTAzHv2P24donTt6/529l+9Ua0vFImLlb'
+
 const MARKUP = fs.readFileSync('test/fixtures/markup.html').toString()
 
 module.exports = {
@@ -22,5 +26,6 @@ module.exports = {
   INTEGRITY_STYLE_1_SHA512,
   INTEGRITY_SCRIPT_1,
   INTEGRITY_SCRIPT_2,
+  INTEGRITY_EMPTY_FILE,
   MARKUP
 }

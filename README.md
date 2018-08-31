@@ -10,6 +10,15 @@ npm install srify
 
 ## Usage
 
+### CLI
+
+```
+srify build/index.html
+srify --help
+```
+
+### Node.js
+
 ```javascript
 const srify = require('srify')
 
@@ -56,9 +65,9 @@ npm test
 
 ## Change log
 
+* `2.0.0`: add CLI command, change options defaults
 * `1.0.1`: fix main entry in `package.json`
 * `1.0.0`: initial release
-
 
 ## License
 

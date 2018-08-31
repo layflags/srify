@@ -1,7 +1,9 @@
+// external dependencies
 const test = require('tape')
 const cheerio = require('cheerio')
 const htmlLooksLike = require('html-looks-like')
 
+// local dependencies
 const {
   MARKUP,
   INTEGRITY_STYLE_1,
@@ -39,7 +41,7 @@ test('sets integrity attribute on link and script tags', t => {
   t.equal(
     $link.attr('integrity'),
     INTEGRITY_STYLE_1,
-    'integrity value should match'
+    'integrity value of style should match'
   )
   t.equal($script.length, 2, 'there should be two script tags with integrity')
   t.equal(
@@ -60,7 +62,7 @@ test('just returns `markup` if `script` & `style` option flags are off', t => {
   t.pass('should return wrapped/fixed/reformatted `markup`')
 })
 
-test('sets integrity using `sha512` if `algorithm` option is set so', t => {
+test('sets integrity with different `algorithm` if option is set', t => {
   t.plan(1)
   const output = srify(MARKUP, {
     style: true,
@@ -71,6 +73,6 @@ test('sets integrity using `sha512` if `algorithm` option is set so', t => {
   t.equal(
     $('link[integrity]').attr('integrity'),
     INTEGRITY_STYLE_1_SHA512,
-    'integrity value should match'
+    'integrity value should match sha512 version of style1.css'
   )
 })
