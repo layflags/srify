@@ -11,7 +11,7 @@ const isExternalUrl = url => /^(https?:)?\/\//.test(url)
 
 module.exports = (
   markup,
-  { style = false, script = false, baseDir = '', algorithm = 'sha384' } = {}
+  { style = true, script = true, baseDir = '', algorithm = 'sha384' } = {}
 ) => {
   if (typeof markup !== 'string') throw Error('markup must be a string')
 

@@ -28,32 +28,19 @@ test('fails when `markup` is missing', t => {
   )
 })
 
-test('simply returns `markup` if no options are provided', t => {
-  t.plan(1)
-  htmlLooksLike(srify(MARKUP), MARKUP)
-  t.pass('should return wrapped/fixed/reformatted `markup`')
-})
-
-test('sets `integrity` on `link` tags when `style` option is set', t => {
-  t.plan(3)
-  const output = srify(MARKUP, { style: true, baseDir: BASE_DIR })
+test('sets integrity attribute on link and script tags', t => {
+  t.plan(6)
+  const output = srify(MARKUP, { baseDir: BASE_DIR })
   const $ = cheerio.load(output)
   const $link = $('link[integrity]')
-  t.ok(htmlLooksLike.bool(output, MARKUP), 'should not remove markup')
+  const $script = $('script[integrity]')
+  t.ok(htmlLooksLike.bool(output, MARKUP), 'should not remove any markup')
   t.equal($link.length, 1, 'there should be only one link tag with integrity')
   t.equal(
     $link.attr('integrity'),
     INTEGRITY_STYLE_1,
     'integrity value should match'
   )
-})
-
-test('sets `integrity` on `script` tags when `script` option is set', t => {
-  t.plan(4)
-  const output = srify(MARKUP, { script: true, baseDir: BASE_DIR })
-  const $ = cheerio.load(output)
-  const $script = $('script[integrity]')
-  t.ok(htmlLooksLike.bool(output, MARKUP), 'should not remove markup')
   t.equal($script.length, 2, 'there should be two script tags with integrity')
   t.equal(
     $script.filter('[src="/script1.js"]').attr('integrity'),
@@ -67,7 +54,13 @@ test('sets `integrity` on `script` tags when `script` option is set', t => {
   )
 })
 
-test('sets `integrity` using `sha512` if `algorithm` option is set so', t => {
+test('just returns `markup` if `script` & `style` option flags are off', t => {
+  t.plan(1)
+  htmlLooksLike(srify(MARKUP, { script: false, style: false }), MARKUP)
+  t.pass('should return wrapped/fixed/reformatted `markup`')
+})
+
+test('sets integrity using `sha512` if `algorithm` option is set so', t => {
   t.plan(1)
   const output = srify(MARKUP, {
     style: true,

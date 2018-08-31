@@ -1,6 +1,6 @@
 # srify
 
-Node.js script for adding `integrity` attributes to same domain `<script src>` and stylesheet `<link>` tags on html markup.
+Adds computed `integrity` attributes to same domain external script and stylesheet tags on html markup.
 
 ## Install
 
@@ -26,9 +26,9 @@ const markup = `
   </html>
 `
 const markupSrified = srify(markup, {
-  style: true,            // default: false
-  script: true,           // default: false
-  algorithm: 'sha384',    // default!
+  style: true,            // default
+  script: true,           // default
+  algorithm: 'sha384',    // default
   baseDir: 'build/assets' // default: ''
 })
 console.log(markupSrified)
