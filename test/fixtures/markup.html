@@ -4,7 +4,6 @@
     <link rel="stylesheet" href="/style1.css" />
     <link rel="stylesheet" href="https://some.cdn/style-ext-1.css" />
     <link rel="stylesheet" href="http://some.cdn/style-ext-2.css" />
-    <link rel="stylesheet" href="//some.cdn/style-ext-3.css" />
     <script src="/script1.js"></script>
     <script src="https://some.cdn/script-ext-1.js"></script>
     <script src="http://some.cdn/script-ext-2.js"></script>
@@ -13,5 +12,9 @@
     <p>hello</p>
     <script src="/script2.js"></script>
     <script src="//some.cdn/script-ext-3.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="/style2.css" />
+      <link rel="stylesheet" href="//some.cdn/style-ext-3.css" />
+    </noscript>
   </body>
 </html>

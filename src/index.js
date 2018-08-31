@@ -3,11 +3,27 @@ const path = require('path')
 const fs = require('fs')
 
 // external dependencies
-const cheerio = require('cheerio')
+const _cheerio = require('cheerio')
 const ssri = require('ssri')
 
 // helper
 const isExternalUrl = url => /^(https?:)?\/\//.test(url)
+
+// XXX: monkey patch to handle problematic <noscript> tags,
+//      see https://bit.ly/2wD2XNr
+const cheerio = (() => {
+  const tweak = markup => markup.replace(/(<\/?)noscript>/g, '$1no-script>')
+  const untweak = markup => markup.replace(/(<\/?)no-script>/g, '$1noscript>')
+  const cheerioLoad = _cheerio.load.bind(_cheerio)
+  return {
+    load: markup => {
+      const $ = cheerioLoad(tweak(markup))
+      const $html = $.html.bind($)
+      $.html = (...args) => untweak($html(...args))
+      return $
+    }
+  }
+})()
 
 module.exports = (
   markup,

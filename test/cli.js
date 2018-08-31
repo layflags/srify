@@ -7,8 +7,8 @@ const test = require('tape')
 // local dependencies
 const { version } = require('../package.json')
 const {
-  INTEGRITY_STYLE_1,
-  INTEGRITY_STYLE_1_SHA512,
+  INTEGRITY_STYLE,
+  INTEGRITY_STYLE_SHA512,
   INTEGRITY_EMPTY_FILE
 } = require('./fixtures')
 
@@ -68,13 +68,13 @@ test('[cli] renders integrity w/ different --algorithm if option is set', t => {
   t.plan(2)
   t.ok(
     run('src/cli.js test/fixtures/markup.html').includes(
-      `integrity="${INTEGRITY_STYLE_1}"`
+      `integrity="${INTEGRITY_STYLE}"`
     ),
     'should set sha384 integrity for style1.css when using default algorithm'
   )
   t.ok(
     run('src/cli.js --algorithm=sha512 test/fixtures/markup.html').includes(
-      `integrity="${INTEGRITY_STYLE_1_SHA512}"`
+      `integrity="${INTEGRITY_STYLE_SHA512}"`
     ),
     'should set sha512 integrity for style1.css when using sha512 algorithm'
   )
