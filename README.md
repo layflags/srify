@@ -65,7 +65,7 @@ npm test
 
 ## Change log
 
-* `2.0.1`: properly handle <link> tags inside <noscript>
+* `2.0.1`: properly handle `<link>` tags inside `<noscript>`
 * `2.0.0`: add CLI command, change options defaults
 * `1.0.1`: fix main entry in `package.json`
 * `1.0.0`: initial release
