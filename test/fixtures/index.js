@@ -1,3 +1,5 @@
+const fs = require('fs')
+
 const BASE_DIR = 'test/fixtures'
 
 const INTEGRITY_STYLE_1 =
@@ -12,24 +14,7 @@ const INTEGRITY_SCRIPT_1 =
 const INTEGRITY_SCRIPT_2 =
   'sha384-hp5tnaw8RT0zq5S2OLkmXpNprpaLoCp2zPGa5I4/Ly+OSYWS8ZdVWquhSx/X0dSL'
 
-const MARKUP = `
-  <html>
-    <head>
-      <link rel="stylesheet" href="/style1.css" />
-      <link rel="stylesheet" href="https://some.cdn/style-ext-1.css" />
-      <link rel="stylesheet" href="http://some.cdn/style-ext-2.css" />
-      <link rel="stylesheet" href="//some.cdn/style-ext-3.css" />
-      <script src="/script1.js"></script>
-      <script src="https://some.cdn/script-ext-1.js"></script>
-      <script src="http://some.cdn/script-ext-2.js"></script>
-    </head>
-    <body>
-      <p>hello</p>
-      <script src="/script2.js"></script>
-      <script src="//some.cdn/script-ext-3.js"></script>
-    </body>
-  </html>
-`
+const MARKUP = fs.readFileSync('test/fixtures/markup.html').toString()
 
 module.exports = {
   BASE_DIR,
