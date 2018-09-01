@@ -1,6 +1,6 @@
 {
   "name": "srify",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Adds integrity attributes to script and stylesheet link tags on html markup",
   "main": "src/index.js",
   "bin": {
