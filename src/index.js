@@ -12,8 +12,10 @@ const isExternalUrl = url => /^(https?:)?\/\//.test(url)
 // XXX: monkey patch to handle problematic <noscript> tags,
 //      see https://bit.ly/2wD2XNr
 const cheerio = (() => {
-  const tweak = markup => markup.replace(/(<\/?)noscript>/g, '$1no-script>')
-  const untweak = markup => markup.replace(/(<\/?)no-script>/g, '$1noscript>')
+  const tweak = markup =>
+    markup.replace(/(<\/?)noscript( ?[^>]*)>/g, '$1no-script$2>')
+  const untweak = markup =>
+    markup.replace(/(<\/?)no-script( ?[^>]*)>/g, '$1noscript$2>')
   const cheerioLoad = _cheerio.load.bind(_cheerio)
   return {
     load: markup => {

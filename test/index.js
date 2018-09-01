@@ -18,7 +18,7 @@ const srify = require('../src')
 // XXX: monkey patch to handle problematic <noscript> tags,
 //      see https://bit.ly/2wD2XNr
 const { cheerio, htmlLooksLike } = (() => {
-  const tweak = markup => markup.replace(/<\/?noscript>/g, '')
+  const tweak = markup => markup.replace(/<\/?noscript ?[^>]*>/g, '')
   const cheerioLoad = _cheerio.load.bind(_cheerio)
   return {
     htmlLooksLike: (() => {

@@ -65,6 +65,7 @@ npm test
 
 ## Change log
 
+* `2.0.3`: fix `<noscript>` regex
 * `2.0.2`: properly handle `<link>` tags inside `<noscript>`
 * ~~`2.0.1`: xxxxxxxx xxxxxx xxxx xxxxxx~~ *(removed)*
 * `2.0.0`: add CLI command, change options defaults
