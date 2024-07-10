@@ -1,3 +1,5 @@
+<a href="https://www.buymeacoffee.com/layflags" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
+
 # srify
 
 Adds computed `integrity` attributes to same domain external script and stylesheet tags on html markup.
