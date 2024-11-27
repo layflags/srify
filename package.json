@@ -36,7 +36,7 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "commander": "^2.20.0",
-    "ssri": "^6.0.1"
+    "ssri": "^8.0.1"
   },
   "devDependencies": {
     "html-looks-like": "^1.0.3",
